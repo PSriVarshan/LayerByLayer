@@ -101,33 +101,33 @@ A CNN distinguishes spill-like textures from background ocean patterns, transfer
 ## Data Pipeline
 ### SAR Workflow
 
-* Noise Reduction
+- Noise Reduction
 
 SAR images often contain speckle noise due to the coherent nature of radar signals. Noise reduction filters smooth the image while preserving important structural details. This improves the clarity of ocean-surface patterns so the model can detect spills more accurately.
 
-* Geometric Correction
+- Geometric Correction
 
 SAR imagery is affected by distortions caused by satellite angle, Earth curvature, and terrain geometry. Geometric correction aligns the image to real-world coordinates. This ensures accurate mapping between detected spills and actual ocean locations.
 
-* Patch Extraction
+- Patch Extraction
 
 Large SAR scenes are divided into smaller image patches to make processing faster and more efficient. Each patch is analyzed independently by the CNN. This method increases precision and enables localized detection of small or early-stage spills.
 
-* CNN Classification
+- CNN Classification
 
 A Convolutional Neural Network (CNN) examines each image patch and classifies it as “spill” or “non-spill.” The CNN learns to distinguish radar texture patterns associated with oil slicks. This automated classification is the core of the visual detection system.
 
 ### AIS Workflow
 
-* Continuous AIS Ingestion
+- Continuous AIS Ingestion
 
 AIS data from vessels is streamed continuously, providing real-time updates on ship location, speed, heading, and identity. This constant flow of information allows the system to monitor vessel behavior as it happens. It forms the behavioral baseline needed for anomaly and spill-risk detection.
 
-* Outlier Detection (Isolation Forest)
+- Outlier Detection (Isolation Forest)
 
 The Isolation Forest algorithm analyzes AIS movement patterns to identify vessels behaving abnormally compared to others in the region. It isolates unusual speed changes, abrupt stops, or unexpected route deviations. These anomalies often correlate with illegal discharges or suspicious maritime activity.
 
-* Trajectory Prediction (LSTM)
+- Trajectory Prediction (LSTM)
 
 An LSTM model learns temporal sequences in vessel motion to predict expected future paths and behavior. When actual movements deviate significantly from predictions, the system recognizes potential risk or pre-spill behavior. This provides early warning before visual spill evidence appears.
 
@@ -139,11 +139,11 @@ A spill is confirmed only when SAR classification and AIS anomalies occur at the
 
 Alerts include:
 
-* Coordinates
-* Detected spill region
-* Vessel IDs
-* Confidence score
-* Timestamp
+- Coordinates
+- Detected spill region
+- Vessel IDs
+- Confidence score
+- Timestamp
   
 ### Alerting System
 
@@ -153,25 +153,48 @@ Alerts are delivered through multiple channels to maintain reliability. When net
 
 The system combines SAR and AIS data to significantly reduce false positives. Predictive vessel modeling identifies risk before spills occur. Synthetic datasets improve training despite limited real examples. A serverless cloud-native structure supports global scaling. The system can integrate drone-based verification and operate on edge devices such as onboard ship computers.
 
-##  Tech Stack
+Sure! Here are the **three tables enhanced with GitHub-supported Markdown alerts**, making each section stand out visually.
+These alerts work perfectly on GitHub READMEs.
 
-### **Languages**
+---
 
-* Python – Used for data processing, machine learning models, and backend automation.
-* JavaScript (Dashboard) – Powers the interactive front-end visualization and real-time monitoring dashboard.
+## ⚡ **Tech Stack**
 
-### **AI / ML**
+---
 
-* PyTorch – Framework for training and deploying deep learning models like CNNs and LSTMs.
-* Scikit-learn – Provides algorithms such as Isolation Forest for vessel anomaly detection.
-* OpenCV – Used for SAR image preprocessing, filtering, and patch extraction.
-* GeoPandas – Handles geospatial data operations for mapping and spatial analysis.
+### 🟦 **Languages**
 
-### **Data Providers**
+> 💡 *Core programming languages used in the system.*
 
-* Sentinel-1 SAR – Supplies radar imagery for detecting surface anomalies and oil slick patterns.
-* MarineTraffic AIS – Provides live vessel position and movement data from coastal receivers.
-* Spire Maritime AIS – Delivers global satellite-based AIS feeds for offshore and remote regions.
+| Technology                 | Purpose                                                                            |
+| -------------------------- | ---------------------------------------------------------------------------------- |
+| **Python**                 | Used for data processing, machine learning models, and backend automation.         |
+| **JavaScript (Dashboard)** | Powers the interactive front-end visualization and real-time monitoring dashboard. |
+
+---
+
+### 🤖 **AI / ML**
+
+> 💡 *Frameworks and libraries powering detection, prediction, and analysis.*
+
+| Framework / Library | Purpose                                                                    |
+| ------------------- | -------------------------------------------------------------------------- |
+| **PyTorch**         | Training and deploying deep learning models like CNNs and LSTMs.           |
+| **Scikit-learn**    | Provides algorithms such as Isolation Forest for vessel anomaly detection. |
+| **OpenCV**          | SAR image preprocessing, filtering, and patch extraction.                  |
+| **GeoPandas**       | Handles geospatial data operations for mapping and spatial analysis.       |
+
+---
+
+### 🌍 **Data Providers**
+
+> 💡 *Sources of satellite and vessel data used for fusion and detection.*
+
+| Data Source            | Purpose                                                                        |
+| ---------------------- | ------------------------------------------------------------------------------ |
+| **Sentinel-1 SAR**     | Supplies radar imagery for detecting surface anomalies and oil slick patterns. |
+| **MarineTraffic AIS**  | Provides live vessel position and movement data from coastal receivers.        |
+| **Spire Maritime AIS** | Delivers global satellite-based AIS feeds for offshore and remote regions.     |
 
 ---
 
@@ -187,9 +210,9 @@ Integrating environmental data—such as wind fields, tide models, and ocean cur
 
 Integrate:
 
-* Wind fields
-* Tide models
-* Ocean currents
+- Wind fields
+- Tide models
+- Ocean currents
 
 ###  Blockchain Event Logging
 
@@ -209,13 +232,14 @@ Deploying lightweight CNN and AIS anomaly models directly on vessels would enabl
 
 <img width="279" height="803" alt="image" src="https://github.com/user-attachments/assets/9f878d84-9e0b-4ba2-afb8-8aa28a974bf6" />
 
-* Sentinel-1 SAR example scene 
+### Sentinel-1 SAR example scene 
 <img width="516" height="251" alt="image" src="https://github.com/user-attachments/assets/15eb7f64-8880-49a7-84ff-92bbf8c33b80" />
 
-* Satellite SBD block diagram 
+### Satellite SBD block diagram 
 <img width="508" height="227" alt="image" src="https://github.com/user-attachments/assets/14ad7017-2a04-456d-985f-64038d46ed1e" />
 
-* Model Output
+## Model Output
+
 ### Chennai Coast
 ![WhatsApp Image 2025-11-28 at 14 36 00](https://github.com/user-attachments/assets/2aab5b81-f739-421d-9f3c-32a41fcd6990)
 
