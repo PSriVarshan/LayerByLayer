@@ -254,7 +254,7 @@ Deploying lightweight CNN and AIS anomaly models directly on vessels would enabl
 > [!TIP]
 > This project is fully open and can be extended, modified, or integrated into new systems.
 > You are free to use the models, architecture, and workflow presented here to build improved or specialized versions.
-> Whether you're enhancing detection accuracy, adding new data sources, or scaling for research or production—this repository is designed to support continued development and innovation.
+> Whether you're enhancing detection accuracy, adding new data sources, or scaling for research or production, this repository is designed to support continued development and innovation.
 
 
 
